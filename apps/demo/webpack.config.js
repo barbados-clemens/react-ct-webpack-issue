@@ -8,6 +8,10 @@ module.exports = composePlugins(withNx(), withReact(), async (config) => {
   await new Promise((res) => {
     setTimeout(res, 1000);
   });
-  console.log('Webpack config:', config);
+  config.plugins.splice(3, 1);
+  console.log(
+    'Webpack config:',
+    config.plugins.map((p) => p.constructor.name)
+  );
   return config;
 });
